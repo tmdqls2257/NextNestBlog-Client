@@ -66,6 +66,8 @@ class CustomAxios {
   }
 }
 
-const NetworkService = CustomAxios.getInstance(`http://localhost:8080/`);
+const NetworkService = CustomAxios.getInstance(
+  `${process.env.NEXT_PUBLIC_SERVER}`
+);
 
 export default NetworkService;
