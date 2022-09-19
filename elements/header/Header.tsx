@@ -41,13 +41,13 @@ const Header = observer(({ onClick }: HeaderProps) => {
         {isLogIn ? (
           <Button onClick={onLogOut}>{"LogOut"}</Button>
         ) : (
-          <LinkButton href={"http://localhost:3000/blogs/login"}>
+          <LinkButton href={`${process.env.NEXT_PUBLIC_CLIENT}blogs/login`}>
             {"LogIn"}
           </LinkButton>
         )}
 
         {isAdmin && (
-          <LinkButton href={"http://localhost:3000/blogs/post"}>
+          <LinkButton href={`${process.env.NEXT_PUBLIC_CLIENT}blogs/post`}>
             {"글쓰기"}
           </LinkButton>
         )}
