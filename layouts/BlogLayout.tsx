@@ -8,7 +8,7 @@ type BlogLyaoutProps = {
 const BlogLayout = ({ children }: BlogLyaoutProps) => {
   return (
     <>
-      <img src="/black_girl.png" alt="" />
+      <img src="/black_girl.webp" alt="" />
       {children}
       <Footer />
     </>

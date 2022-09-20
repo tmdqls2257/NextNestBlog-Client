@@ -34,7 +34,7 @@ const Header = observer(({ onClick }: HeaderProps) => {
     >
       <div className="flex items-center ">
         <IconBox onClick={onClick} iconName={IconType.menu} />
-        <Image src={"/Teogu.png"} alt="logo" width={80} height={80} />
+        <Image src={"/Teogu.webp"} alt="logo" width={80} height={80} />
       </div>
 
       <div className="space-x-3">
