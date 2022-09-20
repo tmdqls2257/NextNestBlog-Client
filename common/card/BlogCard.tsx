@@ -43,11 +43,9 @@ export default function BlogCard({ blogData }: CardProps) {
         onClick(e);
       }}
     >
-      <h5 className="py-3">{blogData.title}</h5>
+      {/* <h5 className="py-3">{blogData.title}</h5>
 
-      {/* {children} */}
-
-      {/* <p>{Date.parse(blogData.createdAt)}</p> */}
+      <p>{Date.parse(blogData.createdAt)}</p>
       <section className="flex items-center justify-between">
         <p className="flex flex-row-revers">{date[0]}</p>
 
@@ -57,7 +55,39 @@ export default function BlogCard({ blogData }: CardProps) {
             <IconBox iconName={IconType.trash} onClick={onRemove} />
           </div>
         )}
-      </section>
+      </section> */}
+
+      <div className="flex flex-wrap no-underline hover:no-underline space-y-5">
+        <img
+          src="https://source.unsplash.com/collection/3657445/800x600"
+          className="h-full w-full rounded-t"
+        />
+        <div className="w-full px-6">
+          <p className="text-gray-600 text-xs md:text-sm ">GETTING STARTED</p>
+          <div className="font-bold text-xl text-gray-900 ">
+            {blogData.title}
+          </div>
+          <p className="text-gray-800 font-serif text-base">
+            Lorem ipsum eu nunc commodo posuere et sit amet ligula.
+          </p>
+        </div>
+
+        <div className="flex w-full items-center justify-between px-6 pb-5">
+          <img
+            className="w-8 h-8 rounded-full mr-4 avatar"
+            data-tippy-content="Author Name"
+            src="http://i.pravatar.cc/300"
+            alt="Avatar of Author"
+          />
+          {isAdmin && (
+            <div className="flex">
+              <IconBox iconName={IconType.update} />
+              <IconBox iconName={IconType.trash} onClick={onRemove} />
+            </div>
+          )}
+          <p className="text-gray-600 text-xs md:text-sm">{date[0]}</p>
+        </div>
+      </div>
     </Card>
   );
 }
