@@ -11,8 +11,8 @@ export default {
 export const blogLayout: ComponentStory<typeof BlogDetail> = () => (
   <BlogDetail
     postDetail={{
-      title: "",
-      contents: "",
+      title: "testTitle",
+      contents: "testContent",
       description: "",
       deletedAt: null,
       likeCount: 0,

@@ -16,7 +16,8 @@ const BlogDetail = ({ postDetail }: BlogDetailProps) => {
   return (
     <Layout>
       <BlogLayout>
-        <section className="min-h-screen text-center">
+        {/* <section className="min-h-screen text-center"> */}
+        <section className="min-h-screen ">
           <h1>{postDetail.title}</h1>
 
           {parse(postDetail.contents)}
