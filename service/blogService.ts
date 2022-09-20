@@ -2,10 +2,11 @@ import NetworkService, { MethodType } from "../network/http";
 
 class BlogNetworkService {
   constructor() {}
-  async post(title: string, contents: string) {
+  async post(title: string, contents: string, description: string) {
     const response = await NetworkService.request("blogs", MethodType.post, {
       title,
       contents,
+      description,
     });
     return response;
   }

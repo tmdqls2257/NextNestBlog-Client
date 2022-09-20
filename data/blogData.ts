@@ -14,7 +14,7 @@ export const BlogData: BlogModel[] = [
     title: "test 입니다.",
     contents: `
     content내용입니다.`,
-    description: "html",
+    description: "html에 대해서 배우도록 하겠습니다.",
     deletedAt: null,
     likeCount: 0,
     id: "de992305-c065-4644-804f-2879952e0a54",
@@ -25,7 +25,7 @@ export const BlogData: BlogModel[] = [
     title: "test2 입니다.",
     contents: `
     content2내용입니다.`,
-    description: "css",
+    description: "css에 대해서 배우도록 하겠습니다.",
     deletedAt: null,
     likeCount: 0,
     id: "de992305-c065-4644-804f-2879952e0a54",
@@ -36,7 +36,7 @@ export const BlogData: BlogModel[] = [
     title: "test3 입니다.",
     contents: `
     content3내용입니다.`,
-    description: "js",
+    description: "js에 대해서 배우도록 하겠습니다.",
     deletedAt: null,
     likeCount: 0,
     id: "de992305-c065-4644-804f-2879952e0a54",

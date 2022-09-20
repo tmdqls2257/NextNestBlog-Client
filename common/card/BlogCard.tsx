@@ -63,12 +63,14 @@ export default function BlogCard({ blogData }: CardProps) {
           className="h-full w-full rounded-t"
         />
         <div className="w-full px-6">
-          <p className="text-gray-600 text-xs md:text-sm ">GETTING STARTED</p>
+          <p className="text-gray-600 text-xs md:text-sm ">
+            {"GETTING STARTED"}
+          </p>
           <div className="font-bold text-xl text-gray-900 ">
             {blogData.title}
           </div>
           <p className="text-gray-800 font-serif text-base">
-            Lorem ipsum eu nunc commodo posuere et sit amet ligula.
+            {blogData.description}
           </p>
         </div>
 
