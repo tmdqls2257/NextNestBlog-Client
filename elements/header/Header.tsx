@@ -41,16 +41,10 @@ const Header = observer(({ onClick }: HeaderProps) => {
         {isLogIn ? (
           <Button onClick={onLogOut}>{"LogOut"}</Button>
         ) : (
-          <LinkButton href={`${process.env.NEXT_PUBLIC_CLIENT}blogs/login`}>
-            {"LogIn"}
-          </LinkButton>
+          <LinkButton href={`blogs/login`}>{"LogIn"}</LinkButton>
         )}
 
-        {isAdmin && (
-          <LinkButton href={`${process.env.NEXT_PUBLIC_CLIENT}blogs/post`}>
-            {"글쓰기"}
-          </LinkButton>
-        )}
+        {isAdmin && <LinkButton href={`blogs/post`}>{"글쓰기"}</LinkButton>}
       </div>
     </header>
   );
