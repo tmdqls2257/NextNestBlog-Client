@@ -17,7 +17,7 @@ const BlogDetail = ({ postDetail }: BlogDetailProps) => {
     <Layout>
       <BlogLayout>
         {/* <section className="min-h-screen text-center"> */}
-        <section className="min-h-screen ">
+        <section className="min-h-screen max-w-5xl mx-auto -mt-10 bg-blue ">
           <h1>{postDetail.title}</h1>
 
           {parse(postDetail.contents)}
