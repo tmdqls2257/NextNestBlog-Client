@@ -6,6 +6,7 @@ import IconBox, { IconType } from "../../common/IconBox/IconBox";
 import Button, { LinkButton } from "../../common/button/button";
 import { userStores } from "../../store/Context";
 import { observer } from "mobx-react";
+import Link from "next/link";
 
 type HeaderProps = {
   onClick?: () => void;
@@ -34,7 +35,15 @@ const Header = observer(({ onClick }: HeaderProps) => {
     >
       <div className="flex items-center ">
         <IconBox onClick={onClick} iconName={IconType.menu} />
-        <Image src={"/Teogu.webp"} alt="logo" width={80} height={80} />
+        <Link href={"/"}>
+          <Image
+            className={"cursor-pointer"}
+            src={"/Teogu.webp"}
+            alt="logo"
+            width={80}
+            height={80}
+          />
+        </Link>
       </div>
 
       <div className="space-x-3">

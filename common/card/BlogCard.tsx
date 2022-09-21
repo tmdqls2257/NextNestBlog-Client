@@ -58,10 +58,7 @@ export default function BlogCard({ blogData }: CardProps) {
       </section> */}
 
       <div className="flex flex-wrap no-underline hover:no-underline space-y-5">
-        <img
-          src="https://source.unsplash.com/collection/3657445/800x600"
-          className="h-full w-full rounded-t"
-        />
+        <img src="/default-image.webp" className="h-full w-full rounded-t" />
         <div className="w-full px-6">
           <p className="text-gray-600 text-xs md:text-sm ">
             {"GETTING STARTED"}
@@ -78,7 +75,7 @@ export default function BlogCard({ blogData }: CardProps) {
           <img
             className="w-8 h-8 rounded-full mr-4 avatar"
             data-tippy-content="Author Name"
-            src="http://i.pravatar.cc/300"
+            src="/dafault-avatar.webp"
             alt="Avatar of Author"
           />
           {isAdmin && (
