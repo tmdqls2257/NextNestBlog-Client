@@ -2,7 +2,7 @@ export type BlogModel = {
   title: string;
   contents: string;
   description: string;
-  deletedAt: null;
+  deletedAt?: null;
   likeCount: number;
   id: string;
   createdAt: string;
@@ -11,36 +11,30 @@ export type BlogModel = {
 
 export const BlogData: BlogModel[] = [
   {
-    title: "test 입니다.",
-    contents: `
-    content내용입니다.`,
-    description: "html에 대해서 배우도록 하겠습니다.",
-    deletedAt: null,
+    id: "d0482a90-063f-4b84-8d77-9e937e70a076",
+    createdAt: "2022-09-19T04:15:27.034Z",
+    updatedAt: "2022-09-19T04:15:27.034Z",
+    title: "sdsd",
+    description: "",
+    contents: "<p>sdsd</p>",
     likeCount: 0,
-    id: "de992305-c065-4644-804f-2879952e0a54",
-    createdAt: "2022-09-03T03:08:48.730Z",
-    updatedAt: "2022-09-03T03:08:48.730Z",
   },
   {
-    title: "test2 입니다.",
-    contents: `
-    content2내용입니다.`,
-    description: "css에 대해서 배우도록 하겠습니다.",
-    deletedAt: null,
+    id: "2206b4a8-a6f0-4024-8f58-dae0431c4ea7",
+    createdAt: "2022-09-20T05:15:39.306Z",
+    updatedAt: "2022-09-20T05:15:39.306Z",
+    title: "descriptiontitle",
+    description: "description",
+    contents: "<p>sadsadas</p>",
     likeCount: 0,
-    id: "de992305-c065-4644-804f-2879952e0a54",
-    createdAt: "2022-09-03T03:08:48.730Z",
-    updatedAt: "2022-09-03T03:08:48.730Z",
   },
   {
-    title: "test3 입니다.",
-    contents: `
-    content3내용입니다.`,
-    description: "js에 대해서 배우도록 하겠습니다.",
-    deletedAt: null,
+    id: "76ff4e09-b275-4967-abb8-c2ba154cb02c",
+    createdAt: "2022-09-21T05:48:21.846Z",
+    updatedAt: "2022-09-21T05:48:21.846Z",
+    title: "배포 테스트",
+    description: "배포한 상태에서의 글을 작성했습니다.",
+    contents: "<p>제발 되거라</p>",
     likeCount: 0,
-    id: "de992305-c065-4644-804f-2879952e0a54",
-    createdAt: "2022-09-03T03:08:48.730Z",
-    updatedAt: "2022-09-03T03:08:48.730Z",
   },
 ];

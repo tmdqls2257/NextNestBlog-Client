@@ -37,6 +37,12 @@ export default function BlogCard({ blogData }: CardProps) {
     userStore.isAdmin ? setIsAdmin(true) : setIsAdmin(false);
   }, [userStore.isAdmin]);
 
+  const replaceContent = () => {
+    const splitContent = blogData.contents.substring(0, 50);
+    const replaceContent = splitContent.replace(/(\<\w*\>|\<\/\w\>)/g, "");
+    return replaceContent;
+  };
+
   return (
     <Card
       onClick={(e) => {
@@ -67,7 +73,7 @@ export default function BlogCard({ blogData }: CardProps) {
             {blogData.title}
           </div>
           <p className="text-gray-800 font-serif text-base">
-            {blogData.description}
+            {replaceContent()}
           </p>
         </div>
 
