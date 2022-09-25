@@ -15,6 +15,7 @@ const Post = () => {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [contents, setContents] = useState("");
 
   const onBlurTittle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +29,14 @@ const Post = () => {
   const onSubmit = () => {
     setTitle("");
     setDescription("");
-    BlogService.post(title, contents, description);
+    setImageUrl("");
+    const postData = {
+      title,
+      contents,
+      description,
+      imageUrl,
+    };
+    BlogService.post(postData);
     router.back();
   };
 
@@ -67,7 +75,11 @@ const Post = () => {
         }}
       />
       {/* <ReactQuill modules={modules} theme="snow" value={content} onChange={setContent} /> */}
-      <EditorComponent setContents={setContents} contents={contents} />
+      <EditorComponent
+        setImageUrl={setImageUrl}
+        setContents={setContents}
+        contents={contents}
+      />
       <Button onClick={onSubmit}>{"submit"}</Button>
     </form>
   );

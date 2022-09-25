@@ -5,6 +5,7 @@ import Card from "./Card";
 import IconBox, { IconType } from "../../common/IconBox/IconBox";
 import { userStores } from "../../store/Context";
 import BlogService from "../../service/blogService";
+import Image from "next/image";
 
 type CardProps = {
   // children: React.ReactNode;
@@ -64,7 +65,12 @@ export default function BlogCard({ blogData }: CardProps) {
       </section> */}
 
       <div className="flex flex-wrap no-underline hover:no-underline space-y-5">
-        <img src="/default-image.webp" className="h-full w-full rounded-t" />
+        <Image
+          src={`${blogData.imageUrl || "/default-image.webp"}`}
+          className="h-full w-full rounded-t"
+          width={380}
+          height={286}
+        />
         <div className="w-full px-6">
           <p className="text-gray-600 text-xs md:text-sm ">
             {"GETTING STARTED"}

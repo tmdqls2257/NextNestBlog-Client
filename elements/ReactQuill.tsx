@@ -9,10 +9,15 @@ import BlogService from "../service/blogService";
 
 type EditorComponentProp = {
   setContents: Dispatch<SetStateAction<string>>;
+  setImageUrl: Dispatch<SetStateAction<string>>;
   contents: string;
 };
 
-const EditorComponent = ({ setContents, contents }: EditorComponentProp) => {
+const EditorComponent = ({
+  setImageUrl,
+  setContents,
+  contents,
+}: EditorComponentProp) => {
   const QuillRef = useRef<ReactQuill>();
   // const [contents, setContents] = useState("");
 
@@ -47,6 +52,9 @@ const EditorComponent = ({ setContents, contents }: EditorComponentProp) => {
           //   url = data.image;
           // });
           url = await BlogService.imgUpload(formData);
+          console.log(url);
+
+          setImageUrl(url);
           // const res = await axios.post(
           //   "http://localhost:8080/blogs/upload",
           //   formData

@@ -7,6 +7,7 @@ export type BlogModel = {
   id: string;
   createdAt: string;
   updatedAt: string;
+  imageUrl: string;
 };
 
 export const BlogData: BlogModel[] = [
@@ -16,6 +17,8 @@ export const BlogData: BlogModel[] = [
     updatedAt: "2022-09-19T04:15:27.034Z",
     title: "sdsd",
     description: "",
+    imageUrl:
+      "https://nextnestblog.s3.ap-northeast-2.amazonaws.com/blog/1664112341996_testImage.webp",
     contents: "<p>sdsd</p>",
     likeCount: 0,
   },
@@ -26,6 +29,7 @@ export const BlogData: BlogModel[] = [
     title: "descriptiontitle",
     description: "description",
     contents: "<p>sadsadas</p>",
+    imageUrl: "",
     likeCount: 0,
   },
   {
@@ -35,6 +39,7 @@ export const BlogData: BlogModel[] = [
     title: "배포 테스트",
     description: "배포한 상태에서의 글을 작성했습니다.",
     contents: "<p>제발 되거라</p>",
+    imageUrl: "",
     likeCount: 0,
   },
 ];
