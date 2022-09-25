@@ -19,13 +19,15 @@ const animaitonList = [DrawDeveloper];
 
 export default function LoadingAnimation() {
   return (
-    <Lottie
-      loop
-      // animationData={DrawDeveloper}
-      animationData={DrawDeveloper}
-      play
-      style={{ width: 500, height: 500 }}
-    />
+    <div className="w-screen h-screen flex items-center bg-blur-sm justify-center">
+      <Lottie
+        loop
+        // animationData={DrawDeveloper}
+        animationData={DrawDeveloper}
+        play
+        style={{ width: 500, height: 500 }}
+      />
+    </div>
   );
 }
 

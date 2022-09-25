@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 
 import { HomeAnimation } from "../common/animation/animations";
-import Button, { LinkButton } from "../common/button/button";
+import { LinkButton } from "../common/button/button";
 
 const Home = () => {
   return (
