@@ -3,6 +3,7 @@ import Layout from "../../layouts/layout";
 import { BlogData, BlogModel } from "../../data/blogData";
 import BlogCard from "../../common/card/BlogCard";
 import BlogService from "../../service/blogService";
+import Hero from "components/hero/hero";
 
 type BlogsProps = {
   blogs: BlogModel[];
@@ -11,6 +12,7 @@ type BlogsProps = {
 export default function Blogs({ blogs }: BlogsProps) {
   return (
     <Layout>
+      <Hero />
       <ul className="flex flex-wrap gap-5 justify-center">
         {blogs.map((data, idx) => (
           <BlogCard blogData={data} key={idx}></BlogCard>
@@ -20,7 +22,7 @@ export default function Blogs({ blogs }: BlogsProps) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     const blogs = await BlogService.getAllBlogs();
     return { props: { blogs } };
