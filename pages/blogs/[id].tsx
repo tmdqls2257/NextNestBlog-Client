@@ -16,7 +16,13 @@ const BlogDetail = ({ postDetail }: BlogDetailProps) => {
   return (
     <Layout>
       <BlogLayout>
-        {/* <section className="min-h-screen text-center"> */}
+        <Image
+          src={postDetail.imageUrl || "/black_girl.webp"}
+          className="block"
+          alt=""
+          width={"1000"}
+          height={"300"}
+        />
         <section className="min-h-screen max-w-5xl mx-auto ">
           <h1>{postDetail.title}</h1>
           {parse(postDetail.contents)}

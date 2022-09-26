@@ -11,14 +11,6 @@ type BlogLyaoutProps = {
 const BlogLayout = ({ children }: BlogLyaoutProps) => {
   return (
     <div className="bg-white">
-      <Image
-        src="/black_girl.webp"
-        className="block"
-        alt=""
-        width={"1000"}
-        height={"300"}
-      />
-
       {children}
       <Footer />
     </div>
