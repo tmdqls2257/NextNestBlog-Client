@@ -34,8 +34,8 @@ const LogInForm = () => {
   // };
 
   return (
-    <Card style="absolute_center">
-      <div className="mb-4">
+    <Card style="absolute_center space-y-2 p-5">
+      <div>
         <label
           className="block text-grey-darker text-sm font-bold mb-2"
           htmlFor="email"
@@ -51,7 +51,7 @@ const LogInForm = () => {
           onBlur={onChangeAccount}
         />
       </div>
-      <div className="mb-6">
+      <div>
         <label
           className="block text-grey-darker text-sm font-bold mb-2"
           htmlFor="password"
