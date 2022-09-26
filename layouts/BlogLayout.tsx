@@ -1,5 +1,8 @@
 import React from "react";
 import Footer from "../elements/footer/footer";
+import Image from "next/image";
+
+import Layout from "./layout";
 
 type BlogLyaoutProps = {
   children: React.ReactNode;
@@ -8,7 +11,14 @@ type BlogLyaoutProps = {
 const BlogLayout = ({ children }: BlogLyaoutProps) => {
   return (
     <>
-      <img src="/black_girl.webp" alt="" className="z-10" />
+      <Image
+        src="/black_girl.webp"
+        className="block"
+        alt=""
+        width={"1000"}
+        height={"300"}
+      />
+
       {children}
       <Footer />
     </>

@@ -84,11 +84,13 @@ export default function BlogCard({ blogData }: CardProps) {
         </div>
 
         <div className="flex w-full items-center justify-between px-6 pb-5">
-          <img
-            className="w-8 h-8 rounded-full mr-4 avatar"
+          <Image
+            className="rounded-full avatar"
             data-tippy-content="Author Name"
             src="/dafault-avatar.webp"
             alt="Avatar of Author"
+            width={"32"}
+            height={"32"}
           />
           {isAdmin && (
             <div className="flex">
