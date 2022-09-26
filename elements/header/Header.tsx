@@ -31,7 +31,9 @@ const Header = observer(({ onClick }: HeaderProps) => {
 
   return (
     <header
-      className={classNameJoiner("w-full flex items-center justify-between")}
+      className={classNameJoiner(
+        "w-full bg-white flex items-center justify-between"
+      )}
     >
       <div className="flex items-center ">
         <IconBox onClick={onClick} iconName={IconType.menu} />
@@ -46,7 +48,7 @@ const Header = observer(({ onClick }: HeaderProps) => {
         </Link>
       </div>
 
-      <div className="space-x-3">
+      <div className="space-x-3 pr-5">
         {isLogIn ? (
           <Button onClick={onLogOut}>{"LogOut"}</Button>
         ) : (

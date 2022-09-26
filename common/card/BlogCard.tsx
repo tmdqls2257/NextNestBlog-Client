@@ -68,7 +68,7 @@ export default function BlogCard({ blogData }: CardProps) {
         <Image
           src={`${blogData.imageUrl || "/default-image.webp"}`}
           className="h-full w-full rounded-t"
-          width={380}
+          width={382}
           height={286}
         />
         <div className="w-full px-6">

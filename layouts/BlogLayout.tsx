@@ -10,7 +10,7 @@ type BlogLyaoutProps = {
 
 const BlogLayout = ({ children }: BlogLyaoutProps) => {
   return (
-    <>
+    <div className="bg-white">
       <Image
         src="/black_girl.webp"
         className="block"
@@ -21,7 +21,7 @@ const BlogLayout = ({ children }: BlogLyaoutProps) => {
 
       {children}
       <Footer />
-    </>
+    </div>
   );
 };
 
