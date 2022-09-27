@@ -1,5 +1,5 @@
-import { FillIconBox, FillIconType } from "common/IconBox/IconBox";
-import Link from "next/link";
+import { FillIconBox, FillIconType } from "../../common/IconBox/IconBox";
+
 import { FunctionComponent } from "react";
 
 const Hero: FunctionComponent = () => {
