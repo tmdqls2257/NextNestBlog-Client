@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Layout from "../../layouts/layout";
-import { BlogData, BlogModel } from "../../data/blogData";
+import { BlogModel } from "../../data/blogData";
 import BlogCard from "../../common/card/BlogCard";
 import BlogService from "../../service/blogService";
 import Hero from "../../components/hero/hero";

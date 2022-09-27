@@ -12,7 +12,7 @@ type CardProps = {
   blogData: BlogModel;
 };
 
-export default function BlogCard({ blogData }: CardProps) {
+const BlogCard = ({ blogData }: CardProps) => {
   const { userStore } = userStores();
 
   const [isAdmin, setIsAdmin] = useState(false);
@@ -50,20 +50,6 @@ export default function BlogCard({ blogData }: CardProps) {
         onClick(e);
       }}
     >
-      {/* <h5 className="py-3">{blogData.title}</h5>
-
-      <p>{Date.parse(blogData.createdAt)}</p>
-      <section className="flex items-center justify-between">
-        <p className="flex flex-row-revers">{date[0]}</p>
-
-        {isAdmin && (
-          <div className="flex">
-            <IconBox iconName={IconType.update} />
-            <IconBox iconName={IconType.trash} onClick={onRemove} />
-          </div>
-        )}
-      </section> */}
-
       <div className="flex flex-wrap no-underline hover:no-underline space-y-5">
         <Image
           src={`${blogData.imageUrl || "/default-image.webp"}`}
@@ -81,6 +67,13 @@ export default function BlogCard({ blogData }: CardProps) {
           <p className="text-gray-800 font-serif text-base">
             {replaceContent()}
           </p>
+          <ul className="flex gap-2">
+            {blogData.tags?.map((tag, index) => (
+              <li className="bg-grey px-3 rounded-md text-white" key={index}>
+                {tag}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="flex w-full items-center justify-between px-6 pb-5">
@@ -103,4 +96,5 @@ export default function BlogCard({ blogData }: CardProps) {
       </div>
     </Card>
   );
-}
+};
+export default BlogCard;

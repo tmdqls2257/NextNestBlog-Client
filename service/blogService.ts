@@ -5,6 +5,7 @@ type postDataType = {
   contents: string;
   description: string;
   imageUrl: string;
+  tags: string[];
 };
 
 class BlogNetworkService {

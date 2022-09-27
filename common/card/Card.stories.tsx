@@ -28,6 +28,7 @@ export const blogCard: ComponentStory<typeof BlogCard> = () => {
     id: "de992305-c065-4644-804f-2879952e0a54",
     createdAt: "2022-09-03T03:08:48.730Z",
     updatedAt: "2022-09-03T03:08:48.730Z",
+    tags: ["html", "css", "typescript"],
   };
   return <BlogCard blogData={data}></BlogCard>;
 };
