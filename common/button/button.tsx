@@ -4,7 +4,7 @@ import { UrlObject } from "url";
 
 type buttonProps = {
   children?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
 };
 
 type linkButtonProps = {
