@@ -4,7 +4,7 @@ import Image from "next/image";
 import Layout from "../../layouts/layout";
 import BlogLayout from "../../layouts/BlogLayout";
 import BlogService from "../../service/blogService";
-import { BlogModel } from "data/blogData";
+import { BlogModel } from "../../data/blogData";
 import parse from "html-react-parser";
 
 type BlogDetailProps = {

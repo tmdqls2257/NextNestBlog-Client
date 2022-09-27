@@ -3,7 +3,7 @@ import Layout from "../../layouts/layout";
 import { BlogData, BlogModel } from "../../data/blogData";
 import BlogCard from "../../common/card/BlogCard";
 import BlogService from "../../service/blogService";
-import Hero from "components/hero/hero";
+import Hero from "../../components/hero/hero";
 
 type BlogsProps = {
   blogs: BlogModel[];
