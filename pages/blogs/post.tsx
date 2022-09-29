@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { useForm, SubmitHandler } from "react-hook-form";
+// import { useForm, SubmitHandler } from "react-hook-form";
 import { TagsInput } from "react-tag-input-component";
 
 const EditorComponent = dynamic(() => import("../../elements/ReactQuill"), {
@@ -11,7 +11,7 @@ import React, { useCallback, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import Button from "../../common/button/button";
 import { useRouter } from "next/router";
-import BlogService from "service/blogService";
+import BlogService from "../../service/blogService";
 // import { type } from "../../data/blogData";
 
 export type FormInputs = {
@@ -23,8 +23,6 @@ export type FormInputs = {
 };
 
 const Post = () => {
-  const { register, handleSubmit, control } = useForm<FormInputs>();
-
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
