@@ -38,13 +38,15 @@ const Header = observer(({ onClick }: HeaderProps) => {
       <div className="flex items-center ">
         <IconBox onClick={onClick} iconName={IconType.menu} />
         <Link href={"/"}>
-          <Image
-            className={"cursor-pointer"}
-            src={"/Teogu.webp"}
-            alt="logo"
-            width={80}
-            height={80}
-          />
+          <a>
+            <Image
+              className={"cursor-pointer"}
+              src={"/Teogu.webp"}
+              alt="logo"
+              width={80}
+              height={80}
+            />
+          </a>
         </Link>
       </div>
 
@@ -60,4 +62,4 @@ const Header = observer(({ onClick }: HeaderProps) => {
     </header>
   );
 });
-export default React.memo(Header);
+export default Header;
