@@ -1,8 +1,8 @@
 import NetworkService, { MethodType } from "../network/http";
 
-// export type Tag = {
-//   name: string;
-// };
+export type Tag = {
+  name: string;
+};
 
 export type postBlogDataType = {
   title: string;
@@ -22,10 +22,12 @@ class BlogNetworkService {
     return response;
   }
 
-  async postTags(tags: string[]) {
-    const response = await NetworkService.request("tags", MethodType.post, {
-      name: tags,
-    });
+  async postTags(tags: Tag[]) {
+    const response = await NetworkService.request(
+      "tags",
+      MethodType.post,
+      tags
+    );
   }
 
   async joinBlogTags(tags: string[], blog: postBlogDataType) {

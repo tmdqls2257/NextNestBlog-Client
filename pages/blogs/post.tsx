@@ -11,7 +11,7 @@ import React, { useCallback, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import Button from "../../common/button/button";
 import { useRouter } from "next/router";
-import BlogService from "../../service/blogService";
+import BlogService, { Tag } from "../../service/blogService";
 // import { type } from "../../data/blogData";
 
 const Post = () => {
@@ -30,13 +30,14 @@ const Post = () => {
     setTitle("");
     setDescription("");
     setImageUrl("");
-    // const tags: Tag[] = [];
+    const tags: Tag[] = [];
 
-    // tagNames.map((tagName) => [
-    //   tags.push({
-    //     name: tagName,
-    //   }),
-    // ]);
+    tagNames.map((tagName) => [
+      tags.push({
+        name: tagName,
+      }),
+    ]);
+    console.log("tags", tags);
 
     const postData = {
       title,
@@ -45,8 +46,9 @@ const Post = () => {
       imageUrl,
     };
     const newBlog = await BlogService.postBlog(postData);
-    await BlogService.postTags(tagNames);
-    await BlogService.joinBlogTags(tagNames, newBlog);
+    await BlogService.postTags(tags).then(async () => {
+      await BlogService.joinBlogTags(tagNames, newBlog);
+    });
     router.back();
     console.log(postData);
   };
