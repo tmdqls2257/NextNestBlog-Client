@@ -7,7 +7,7 @@ export type BlogModel = {
   id: string;
   createdAt: string;
   updatedAt: string;
-  imageUrl: string;
+  imageUrl?: string;
   tags?: {
     id: string;
     name: string;
