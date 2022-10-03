@@ -22,7 +22,7 @@ export default function Blogs({ blogs }: BlogsProps) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   try {
     const blogs = await BlogService.getAllBlogs();
     return { props: { blogs } };
