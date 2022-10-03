@@ -14,38 +14,39 @@ import { useRouter } from "next/router";
 import BlogService from "../../service/blogService";
 // import { type } from "../../data/blogData";
 
-export type FormInputs = {
-  title: string;
-  contents: string;
-  description: string;
-  imageUrl: string;
-  tags: string;
-};
-
 const Post = () => {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [contents, setContents] = useState("");
-  const [tags, setTags] = useState<string[]>([]);
+  const [tagNames, setTagNames] = useState<string[]>([]);
 
   const onBlurTittle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.currentTarget.value);
   }, []);
   // const onSubmit: SubmitHandler<FormInputs> = (data) => console.log(data);
-  const onSubmit = () => {
+  const onSubmit = async () => {
     setTitle("");
     setDescription("");
     setImageUrl("");
+    // const tags: Tag[] = [];
+
+    // tagNames.map((tagName) => [
+    //   tags.push({
+    //     name: tagName,
+    //   }),
+    // ]);
+
     const postData = {
       title,
       contents,
       description,
       imageUrl,
-      tags,
     };
-    BlogService.post(postData);
+    const newBlog = await BlogService.postBlog(postData);
+    await BlogService.postTags(tagNames);
+    await BlogService.joinBlogTags(tagNames, newBlog);
     router.back();
     console.log(postData);
   };
@@ -58,16 +59,7 @@ const Post = () => {
       >
         {"title"}
       </label>
-      {/* <input
-        name="title"
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-        id="email"
-        type="text"
-        placeholder="title"
-        onBlur={(e) => {
-          onBlurTittle(e);
-        }}
-      /> */}
+
       <input
         className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
         id="email"
@@ -78,8 +70,8 @@ const Post = () => {
       {/* <Tag /> */}
       <TagsInput
         classNames={{ input: "bg-white" }}
-        value={tags}
-        onChange={setTags}
+        value={tagNames}
+        onChange={setTagNames}
         name="fruits"
         placeHolder="enter fruits"
       />

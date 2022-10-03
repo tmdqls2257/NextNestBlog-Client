@@ -1,22 +1,45 @@
 import NetworkService, { MethodType } from "../network/http";
 
-type postDataType = {
+// export type Tag = {
+//   name: string;
+// };
+
+export type postBlogDataType = {
   title: string;
   contents: string;
   description: string;
-  imageUrl: string;
-  tags: string[];
+  imageUrl?: string;
 };
 
 class BlogNetworkService {
   constructor() {}
-  async post(postData: postDataType) {
+  async postBlog(postData: postBlogDataType) {
     const response = await NetworkService.request(
       "blogs",
       MethodType.post,
       postData
     );
     return response;
+  }
+
+  async postTags(tags: string[]) {
+    const response = await NetworkService.request("tags", MethodType.post, {
+      name: tags,
+    });
+  }
+
+  async joinBlogTags(tags: string[], blog: postBlogDataType) {
+    const data = {
+      blog,
+      tags: tags,
+    };
+    console.log(data);
+
+    const response = await NetworkService.request(
+      "blogs/tags",
+      MethodType.post,
+      data
+    );
   }
 
   async getAllBlogs() {
@@ -27,8 +50,7 @@ class BlogNetworkService {
   async getBlog(ID: string) {
     const response = await NetworkService.request(
       `blogs/${ID}`,
-      MethodType.get,
-      {}
+      MethodType.get
     );
 
     return response;

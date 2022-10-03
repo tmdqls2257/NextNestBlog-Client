@@ -8,7 +8,10 @@ export type BlogModel = {
   createdAt: string;
   updatedAt: string;
   imageUrl: string;
-  tags: string[];
+  tags?: {
+    id: string;
+    name: string;
+  }[];
 };
 
 export const BlogData: BlogModel[] = [
@@ -22,7 +25,7 @@ export const BlogData: BlogModel[] = [
       "https://nextnestblog.s3.ap-northeast-2.amazonaws.com/blog/1664112341996_testImage.webp",
     contents: "<p>sdsd</p>",
     likeCount: 0,
-    tags: ["html", "css", "typescript"],
+    // tags: ["html", "css", "typescript"],
   },
   {
     id: "2206b4a8-a6f0-4024-8f58-dae0431c4ea7",
@@ -33,7 +36,7 @@ export const BlogData: BlogModel[] = [
     contents: "<p>sadsadas</p>",
     imageUrl: "",
     likeCount: 0,
-    tags: ["html", "typescript"],
+    // tags: ["html", "typescript"],
   },
   {
     id: "76ff4e09-b275-4967-abb8-c2ba154cb02c",
@@ -44,6 +47,6 @@ export const BlogData: BlogModel[] = [
     contents: "<p>제발 되거라</p>",
     imageUrl: "",
     likeCount: 0,
-    tags: ["html", "css"],
+    // tags: ["html", "css"],
   },
 ];

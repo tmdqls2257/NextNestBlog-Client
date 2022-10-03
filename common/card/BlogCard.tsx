@@ -68,11 +68,12 @@ const BlogCard = ({ blogData }: CardProps) => {
             {replaceContent()}
           </p>
           <ul className="flex gap-2">
-            {blogData.tags?.map((tag, index) => (
-              <li className="bg-grey px-3 rounded-md text-white" key={index}>
-                {tag}
-              </li>
-            ))}
+            {blogData.tags &&
+              blogData.tags?.map((tag, index) => (
+                <li className="bg-grey px-3 rounded-md text-white" key={index}>
+                  {tag.name}
+                </li>
+              ))}
           </ul>
         </div>
 
