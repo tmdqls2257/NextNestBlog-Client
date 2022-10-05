@@ -25,8 +25,7 @@
     "react-hook-form": "^7.36.1",
     "react-lottie-player": "^1.4.3",
     "react-quill": "^2.0.0",
-    "react-tag-input-component": "^1.1.2",
-    "storybook": "^6.5.12"
+    "react-tag-input-component": "^1.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
