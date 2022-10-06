@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import parse from "html-react-parser";
 
 import Layout from "../../layouts/layout";
 import BlogLayout from "../../layouts/BlogLayout";
 import BlogService from "../../service/blogService";
 import { BlogModel } from "../../data/blogData";
-import parse from "html-react-parser";
+import Comment from "../../components/comment/Comment";
 
 type BlogDetailProps = {
   // children: React.ReactNode;
@@ -27,6 +28,7 @@ const BlogDetail = ({ postDetail }: BlogDetailProps) => {
           <h1>{postDetail.title}</h1>
           {parse(postDetail.contents)}
         </section>
+        <Comment />
       </BlogLayout>
     </Layout>
   );
