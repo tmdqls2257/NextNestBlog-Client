@@ -40,7 +40,10 @@ const BlogCard = ({ blogData }: CardProps) => {
 
   const replaceContent = () => {
     const splitContent = blogData.contents.substring(0, 50);
-    const replaceContent = splitContent.replace(/(\<\w*\>|\<\/\w\>)/g, "");
+    const replaceContent = splitContent.replace(
+      /(\<\w*\>|\<\/\w\>|<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>])/g,
+      ""
+    );
     return replaceContent;
   };
 
