@@ -3,19 +3,23 @@ import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import BlogService from "../../service/blogService";
 
-export type Inputs = {
+export type CommentType = {
   comment: string;
 };
 
-const Comment = () => {
+export type CommentProps = {
+  blogId: string;
+};
+
+const Comment = ({ blogId }: CommentProps) => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    BlogService.postComment(data);
+  } = useForm<CommentType>();
+  const onSubmit: SubmitHandler<CommentType> = (data) => {
+    BlogService.postComment(blogId, data);
   };
 
   return (

@@ -1,3 +1,4 @@
+import { CommentType } from "components/comment/Comment";
 import NetworkService, { MethodType } from "../network/http";
 
 export type Tag = {
@@ -28,6 +29,13 @@ class BlogNetworkService {
       MethodType.post,
       tags
     );
+  }
+
+  async postComment(blogId: string, comment: CommentType) {
+    await NetworkService.request("commnet", MethodType.post, {
+      blogId,
+      comment,
+    });
   }
 
   async joinBlogTags(tags: string[], blog: postBlogDataType) {

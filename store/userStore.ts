@@ -28,14 +28,6 @@ export class User {
 }
 
 export default class UserStore {
-  // @observable user: User = {
-  //   id: "",
-  //   createAt: "",
-  //   updatedAt: "",
-  //   email: "",
-  //   username: "",
-  //   isAdmin: false,
-  // };
   @observable user: User = {
     id: "",
     createAt: "",

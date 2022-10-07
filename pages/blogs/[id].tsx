@@ -28,7 +28,7 @@ const BlogDetail = ({ postDetail }: BlogDetailProps) => {
           <h1>{postDetail.title}</h1>
           {parse(postDetail.contents)}
         </section>
-        <Comment />
+        <Comment blogId={postDetail.id} />
       </BlogLayout>
     </Layout>
   );

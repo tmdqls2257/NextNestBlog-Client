@@ -12,6 +12,6 @@ export default {
 
 export const footer: ComponentStory<typeof Comment> = () => (
   <Provider store={RootStore}>
-    <Comment />
+    <Comment blogId={"1"} />
   </Provider>
 );
