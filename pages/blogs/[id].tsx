@@ -18,11 +18,12 @@ const BlogDetail = ({ postDetail }: BlogDetailProps) => {
     <Layout>
       <BlogLayout>
         <Image
-          src={postDetail.imageUrl || "/black_girl.webp"}
+          src={"/black_girl.webp"}
           className="block"
-          alt=""
-          width={"1000"}
-          height={"300"}
+          alt="default image"
+          width={"100vw"}
+          height={"30"}
+          sizes={"100vw"}
         />
         <section className="min-h-screen max-w-5xl mx-auto ">
           <h1>{postDetail.title}</h1>
