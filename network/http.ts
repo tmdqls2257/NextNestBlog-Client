@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 export enum MethodType {
   get = "get",
@@ -6,8 +6,15 @@ export enum MethodType {
   patch = "patch",
   delete = "delete",
 }
-
-class CustomAxios {
+interface ICustomAxios<D = any> {
+  request: (
+    url: string | undefined,
+    method: MethodType,
+    data?: D,
+    params?: any
+  ) => Promise<AxiosRequestConfig>;
+}
+class CustomAxios implements ICustomAxios {
   private static instance: CustomAxios;
   private baseURL: string;
   constructor(baseURL: string) {
