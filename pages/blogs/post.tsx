@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 // import { useForm, SubmitHandler } from "react-hook-form";
 import { TagsInput } from "react-tag-input-component";
-
 const EditorComponent = dynamic(() => import("../../elements/ReactQuill"), {
   ssr: false,
 });
@@ -32,7 +31,7 @@ const Post = () => {
     setImageUrl("");
     const tags: Tag[] = [];
 
-    tagNames.map((tagName) => [
+    tagNames.map(tagName => [
       tags.push({
         name: tagName,
       }),

@@ -1,7 +1,6 @@
 import { AxiosError } from "axios";
 import { useRef, useMemo, Dispatch, SetStateAction } from "react";
 
-//이렇게 라이브러리를 불러와서 사용하면 됩니다
 import ReactQuill from "react-quill";
 
 import "react-quill/dist/quill.snow.css";
@@ -117,7 +116,7 @@ const EditorComponent = ({
 
   return (
     <ReactQuill
-      ref={(element) => {
+      ref={element => {
         if (element !== null) {
           QuillRef.current = element;
         }
