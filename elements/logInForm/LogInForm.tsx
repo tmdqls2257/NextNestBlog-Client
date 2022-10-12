@@ -20,8 +20,8 @@ const LogInForm = () => {
     });
   };
 
-  const onLogIn = () => {
-    userStore.logIn(account.email, account.password);
+  const onLogIn = async () => {
+    await userStore.logIn(account.email, account.password);
   };
 
   // const onReset = () => {

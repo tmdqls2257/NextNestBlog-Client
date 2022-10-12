@@ -47,6 +47,7 @@ class CustomAxios implements ICustomAxios {
         method,
         data,
         params,
+        withCredentials: true,
       });
 
       if (res.status > 299 || res.status < 200) {
