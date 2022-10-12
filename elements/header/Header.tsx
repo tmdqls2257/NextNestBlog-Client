@@ -7,6 +7,7 @@ import Button, { LinkButton } from "../../common/button/button";
 import { userStores } from "../../store/Context";
 import { observer } from "mobx-react";
 import Link from "next/link";
+import UserService from "service/userService";
 
 type HeaderProps = {
   onClick?: () => void;
@@ -17,8 +18,9 @@ const Header = observer(({ onClick }: HeaderProps) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const { userStore } = userStores();
 
-  const onLogOut = () => {
+  const onLogOut = async () => {
     userStore.logOut();
+    await UserService.logOut();
   };
 
   useEffect(() => {
