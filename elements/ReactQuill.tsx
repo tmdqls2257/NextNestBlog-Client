@@ -1,4 +1,5 @@
 import { AxiosError } from "axios";
+import { Data } from "pages/blogs/post";
 import { useRef, useMemo, Dispatch, SetStateAction } from "react";
 
 import ReactQuill from "react-quill";
@@ -7,18 +8,12 @@ import "react-quill/dist/quill.snow.css";
 import BlogService from "../service/blogService";
 
 type EditorComponentProp = {
-  setContents: Dispatch<SetStateAction<string>>;
-  setImageUrl: Dispatch<SetStateAction<string>>;
-  contents: string;
+  setData: any;
+  data: Data;
 };
 
-const EditorComponent = ({
-  setImageUrl,
-  setContents,
-  contents,
-}: EditorComponentProp) => {
+const EditorComponent = ({ setData, data }: EditorComponentProp) => {
   const QuillRef = useRef<ReactQuill>();
-  // const [contents, setContents] = useState("");
 
   // 이미지를 업로드 하기 위한 함수
   const imageHandler = () => {
@@ -41,29 +36,17 @@ const EditorComponent = ({
         // 저의 경우 파일 이미지를 서버에 저장했기 때문에
         // 백엔드 개발자분과 통신을 통해 이미지를 저장하고 불러왔습니다.
         try {
-          // await NetworkService.request(
-          //   "blogs/upload",
-          //   MethodType.post,
-          //   formData
-          // ).then((data) => {
-          //   console.log(data.image);
-
-          //   url = data.image;
-          // });
           url = await BlogService.imgUpload(formData);
           console.log(url);
 
-          setImageUrl(url);
-          // const res = await axios.post(
-          //   "http://localhost:8080/blogs/upload",
-          //   formData
-          // );
-          // console.log("res", res.);
+          // setImageUrl(url);
+          setData((data: Data) => {
+            return {
+              ...data,
+              imageUrl: url,
+            };
+          });
 
-          // console.log("res.images", res.images);
-          // res.images.map((image: string) => {
-          //   url = image;
-          // });
           // 커서의 위치를 알고 해당 위치에 이미지 태그를 넣어주는 코드
           // 해당 DOM의 데이터가 필요하기에 useRef를 사용한다.
 
@@ -78,14 +61,21 @@ const EditorComponent = ({
               `<Image src=${url} alt="이미지 태그가 삽입됩니다." layout="fill"/>`
             );
           }
-
-          // return { ...res, success: true };
         } catch (error) {
           const err = error as AxiosError;
-          // return { ...err.response, success: false };
+          console.log(err);
         }
       }
     };
+  };
+
+  const onChange = (e: string) => {
+    setData((data: Data) => {
+      return {
+        ...data,
+        contents: e,
+      };
+    });
   };
 
   // quill에서 사용할 모듈을 설정하는 코드 입니다.
@@ -121,9 +111,8 @@ const EditorComponent = ({
           QuillRef.current = element;
         }
       }}
-      value={contents}
-      onChange={setContents}
-      // onBlur={setContents}
+      value={data.contents}
+      onChange={e => onChange(e)}
       modules={modules}
       theme="snow"
       placeholder="내용을 입력해주세요."

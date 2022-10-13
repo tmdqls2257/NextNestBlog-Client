@@ -1,57 +1,70 @@
 import dynamic from "next/dynamic";
-// import { useForm, SubmitHandler } from "react-hook-form";
 import { TagsInput } from "react-tag-input-component";
 const EditorComponent = dynamic(() => import("../../elements/ReactQuill"), {
   ssr: false,
 });
 
-// import EditorComponent from "../../elements/ReactQuill";
 import React, { useCallback, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import Button from "../../common/button/button";
 import { useRouter } from "next/router";
 import BlogService, { Tag } from "../../service/blogService";
 import WithAuth from "HOC/withAuth";
-// import { type } from "../../data/blogData";
+
+export type Data = {
+  title: string;
+  contents: string;
+  description: string;
+  imageUrl: string;
+  tags: Tag[];
+};
 
 const Post = () => {
   const router = useRouter();
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [contents, setContents] = useState("");
+  const [data, setData] = useState<Data>({
+    title: "",
+    contents: "",
+    description: "",
+    imageUrl: "",
+    tags: [{ name: "" }],
+  });
   const [tagNames, setTagNames] = useState<string[]>([]);
 
   const onBlurTittle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.currentTarget.value);
+    setData(data => {
+      return {
+        ...data,
+        title: e.currentTarget.value,
+      };
+    });
   }, []);
-  // const onSubmit: SubmitHandler<FormInputs> = (data) => console.log(data);
   const onSubmit = async () => {
-    setTitle("");
-    setDescription("");
-    setImageUrl("");
-    const tags: Tag[] = [];
-
-    tagNames.map(tagName => [
-      tags.push({
-        name: tagName,
-      }),
-    ]);
+    const tags: Tag[] = tagNames.map(tagName => {
+      return { name: tagName };
+    });
+    setData(data => {
+      return {
+        ...data,
+        tags,
+      };
+    });
     console.log("tags", tags);
 
-    const postData = {
-      title,
-      contents,
-      description,
-      imageUrl,
-    };
-    const newBlog = await BlogService.postBlog(postData);
+    const newBlog = await BlogService.postBlog(data);
     await BlogService.postTags(tags).then(async () => {
       await BlogService.joinBlogTags(tagNames, newBlog);
     });
     router.back();
-    console.log(postData);
+    setData({
+      title: "",
+      contents: "",
+      description: "",
+      imageUrl: "",
+      tags: [{ name: "" }],
+    });
+    console.log("postData", data);
   };
+  console.log(1);
 
   return (
     <form className="space-y-3">
@@ -77,12 +90,7 @@ const Post = () => {
         name="fruits"
         placeHolder="enter fruits"
       />
-      {/* <ReactQuill modules={modules} theme="snow" value={content} onChange={setContent} /> */}
-      <EditorComponent
-        setImageUrl={setImageUrl}
-        setContents={setContents}
-        contents={contents}
-      />
+      <EditorComponent setData={setData} data={data} />
       <Button onClick={onSubmit}>{"submit"}</Button>
     </form>
   );
