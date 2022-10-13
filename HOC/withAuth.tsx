@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import UserService from "service/userService";
 
@@ -9,20 +9,20 @@ type WithChildrenTestComponentProps<T = any> = {
 
 const WithAuth = ({ InComponent }: WithChildrenTestComponentProps) => {
   const OutComponent = () => {
+    const [user, setUser] = useState();
     const router = useRouter();
     useEffect(() => {
       async function IsAdmin() {
         await UserService.getUserData().then(res => {
-          if (res.isAdmin) {
-            console.log(1);
-
+          if (!res.isAdmin) {
             router.back();
           }
+          setUser(res);
         });
       }
       IsAdmin();
     }, []);
-    return <InComponent></InComponent>;
+    return <InComponent user={user}></InComponent>;
   };
 
   return OutComponent;
