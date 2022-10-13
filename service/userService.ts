@@ -21,13 +21,7 @@ class UserNetworkService {
   };
 
   getUserData = async () => {
-    const response = await NetworkService.request("users", MethodType.get, {
-      // email: "tmdqls2257@gmail.com",
-      // username: "tmdqls2257",
-      // password: "chl135",
-    });
-    console.log("response", response);
-
+    const response = await NetworkService.request("users", MethodType.get);
     return response;
   };
 }

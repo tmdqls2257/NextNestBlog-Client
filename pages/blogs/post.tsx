@@ -11,6 +11,7 @@ import "react-quill/dist/quill.snow.css";
 import Button from "../../common/button/button";
 import { useRouter } from "next/router";
 import BlogService, { Tag } from "../../service/blogService";
+import WithAuth from "HOC/withAuth";
 // import { type } from "../../data/blogData";
 
 const Post = () => {
@@ -87,4 +88,6 @@ const Post = () => {
   );
 };
 
-export default Post;
+const WithAuthPost = WithAuth({ InComponent: Post });
+
+export default WithAuthPost;
